@@ -1,4 +1,13 @@
 ---
+import { loadQuery } from "../../sanity/lib/load-query";
+
+const { params } = Astro;
+
+// Fetch all posts with categories set to programs
+const { data: posts } = await loadQuery({
+  query: `*[_type == "post" && references('5fcdc54d-b888-4c15-b1c6-5c09262b1b19')]{ _id, "thumbnail":mainImage.asset->url, title, description, "slug": slug.current}`,
+  params,
+});
 
 ---
 
@@ -12,17 +21,20 @@
       </div>
       <div class="col-lg-12">
         <div class="row">
-          <div class="col-lg-4">
-            <div class="meeting-item">
-              <div class="thumb">
-                <a href="https://academy.wandggroup.com/dm"><img src="https://res.cloudinary.com/dsgvwxygr/image/upload/v1722934564/wandgacademy/ardwzieiun7f1kip9bkj.jpg" alt="Introduction to Digital Marketing"></a>
-              </div>
-              <div class="down-content">
-                <a href="https://academy.wandggroup.com/lms/login/"><h4>Digital Marketing - Zero to Hero</h4></a>
-                <p>In today's fast-paced digital world, mastering the art and science of digital marketing is more crucial than ever. Whether you're looking to upgrade your skills and CV, boost your brand's online presence, drive targeted traffic, or convert clicks into customers, our digital marketing academy is your gateway to the latest strategies, tools, and trends.</p>
+          {posts.map(post => (
+            <div class="col-lg-4" >
+              <div class="meeting-item">
+                <div class="thumb">
+                  <a href={'/programs/'+post.slug}><img src={post.thumbnail} alt="Introduction to Digital Marketing"></a>
+                </div>
+                <div class="down-content">
+                  <a href={'/programs/'+post.slug}><h4>{post.title}</h4></a>
+                  <p>{post.description}</p>
+                </div>
               </div>
             </div>
-          </div>
+            
+          ))}
         </div>
       </div>
       

@@ -18,6 +18,13 @@ export const postType = defineType({
       },
     }),
     defineField({
+      name: 'description',
+      type: 'text',
+      options: {
+        maxLength: 200,
+      },
+    }),
+    defineField({
       name: 'mainImage',
       type: 'image',
       options: {
