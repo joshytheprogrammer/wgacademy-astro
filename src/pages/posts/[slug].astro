@@ -1,0 +1,14 @@
+---
+import { loadQuery } from "../../sanity/lib/load-query";
+
+const { params } = Astro;
+
+const { data: post } = await loadQuery({
+  query: `*[_type == "post" && slug.current == $slug]{ _id, mainImage, title, body}[0]`,
+  params,
+});
+
+---
+
+<h1>A post about {post.title}</h1>
+<p></p>
