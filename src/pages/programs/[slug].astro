@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { loadQuery } from "../../sanity/lib/load-query";
 import PortableText from "../../components/Sanity/PortableText.astro";
+import Contact from "../../components/Home/Contact.astro";
 
 const { params } = Astro;
 
@@ -31,6 +32,7 @@ const { data: post } = await loadQuery({
   
 </Layout>
 
+<Contact />
 <style is:global >
 /* General Styles */
 
