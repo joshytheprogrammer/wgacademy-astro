@@ -299,12 +299,12 @@ body {
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: var(--light)!important;
+  color: var(--light);
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: var(--light)!important;
+  color: var(--light);
   opacity: 1;
 }
 
@@ -506,7 +506,7 @@ body {
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: var(--secondary);
+  color: var(--light);
 }
 
 @media (max-width: 1200px) {
@@ -522,7 +522,7 @@ body {
 @media (max-width: 767px) {
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: var(--secondary)!important;
+    color: var(--light)!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
