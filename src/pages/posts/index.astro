@@ -1,9 +1,53 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
+import { loadQuery } from "../../sanity/lib/load-query";
+
+const { params } = Astro;
+
+const { data: posts } = await loadQuery({
+  query: `*[_type == "post" && !references('5fcdc54d-b888-4c15-b1c6-5c09262b1b19')]{ _id, "thumbnail":mainImage.asset->url, title, description, "slug": slug.current}`,
+  params,
+});
 
 ---
 
-<Layout title="">
-<h2>Posts/</h2>
+<Layout title="Blog for Walls and Gates Academy">
+  <div class="jumbotron">
+    <img src='https://images.unsplash.com/photo-1528805639423-44f7d2a3b368?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWNhZGVteXxlbnwwfHwwfHx8MA%3D%3D' alt={'Image for Walls and Gates Academy'}>
+  </div>
+
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="row">
+        {posts.map(post => (
+          <div class="col-lg-4 py-4" >
+            <div class="meeting-item">
+              <div class="thumb">
+                <a href={'/posts/'+post.slug}><img src={post.thumbnail} alt="Introduction to Digital Marketing"></a>
+              </div>
+              <div class="down-content">
+                <a href={'/programs/'+post.slug}><h4>{post.title}</h4></a>
+                <p>{post.description}</p>
+              </div>
+            </div>
+          </div>
+          
+        ))}
+      </div>
+    </div>
+  </div>
+  
 </Layout>
+
+
+<style >
+  /* General Styles */
+  
+  .jumbotron img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-bottom: 4px solid #ccc;
+  }
+</style>  
