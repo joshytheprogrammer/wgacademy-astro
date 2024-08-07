@@ -299,12 +299,12 @@ body {
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: var(--secondary)!important;
+  color: var(--light)!important;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: var(--secondary)!important;
+  color: var(--light)!important;
   opacity: 1;
 }
 
@@ -646,6 +646,7 @@ banner
   max-height: 100%;
   overflow: hidden;
   margin-bottom: -7px;
+  background-color: var(--primary);
 }
 
 
@@ -665,7 +666,7 @@ banner
 
 .video-overlay {
   position: absolute;
-  background-color: rgba(31,39,43,0.75);
+  background-color: var(--primary);
   top: 0;
   left: 0;
   bottom: 0;
@@ -673,7 +674,13 @@ banner
   width: 100%;
 }
 
-.main-banner .caption {
+.main-banner .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: auto;
+
   position: absolute;
   top: 50%;
   z-index: 99;
@@ -681,15 +688,13 @@ banner
   transform: translateY(-50%);
 }
 
-.main-banner .caption h6 {
-  margin-top: 0px;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--light);
-  letter-spacing: 1px;
+.main-banner .content .f-img {
+  width: fit-content;
 }
 
+.main-banner .caption {
+  
+}
 .main-banner .caption h2 {
   margin-top: 20px;
   margin-bottom: 20px;
