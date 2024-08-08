@@ -1,3 +1,7 @@
+---
+// In your .astro file
+const currentPath = Astro.url.pathname;
+---
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
   <div class="container">
@@ -12,20 +16,30 @@
           <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
-              <li class="scroll-to-section"><a href="/#top" class="active">Home</a></li>
-              <li><a href="/#meetings">Programs</a></li>
-              <li><a href="/posts">Blog</a></li>
-              <li class="scroll-to-section"><a href="/#consultation">Consultation</a></li>
-              <li class="scroll-to-section"><a href="https://academy.wandggroup.com/lms/login/">Apply Now</a></li>
-              <!-- <li class="has-sub">
-                  <a href="javascript:void(0)">Pages</a>
-                  <ul class="sub-menu">
-                      <li><a href="meetings.html">Upcoming Programs</a></li>
-                      <li><a href="meeting-details.html">Meeting Details</a></li>
-                  </ul>
-              </li> -->
-              <!-- <li class="scroll-to-section"><a href="#courses">Courses</a></li>  -->
-              <li class="scroll-to-section"><a href="/#contact">Contact Us</a></li> 
+            <li class="scroll-to-section">
+              <a href="/#top" class={currentPath === '/' ? 'active' : ''}>Home</a>
+            </li>
+            <li>
+              <a href="/#meetings" class={currentPath.includes('/programs') ? 'active' : ''}>Programs</a>
+            </li>
+            <li>
+              <a href="/posts" class={currentPath.includes('/posts') ? 'active' : ''}>Blog</a>
+            </li>
+            <li class="scroll-to-section">
+              <a href="/#consultation" class={currentPath === '/#consultation' ? 'active' : ''}>Consultation</a>
+            </li>
+            <li class="scroll-to-section">
+              <a href="https://academy.wandggroup.com/lms/login/">Apply Now</a>
+            </li>
+            <!-- <li class="has-sub">
+                <a href="javascript:void(0)">Pages</a>
+                <ul class="sub-menu">
+                    <li><a href="meetings.html">Upcoming Programs</a></li>
+                    <li><a href="meeting-details.html">Meeting Details</a></li>
+                </ul>
+            </li> -->
+            <!-- <li class="scroll-to-section"><a href="#courses">Courses</a></li>  -->
+            <li class="scroll-to-section"><a href="/#contact">Contact Us</a></li> 
           </ul>        
           <a class='menu-trigger'>
               <span>Menu</span>

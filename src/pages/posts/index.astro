@@ -31,12 +31,11 @@ const { data: posts } = await loadQuery({
                 <a href={'/posts/'+post.slug}><img src={post.thumbnail} alt="Introduction to Digital Marketing"></a>
               </div>
               <div class="down-content">
-                <a href={'/programs/'+post.slug}><h4>{post.title}</h4></a>
+                <a href={'/posts/'+post.slug}><h4>{post.title}</h4></a>
                 <p>{post.description}</p>
               </div>
             </div>
           </div>
-          
         ))}
       </div>
     </div>
@@ -61,7 +60,6 @@ const { data: posts } = await loadQuery({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 
   max-width: 80%;
   height: 100%;
