@@ -34,7 +34,7 @@ nav a img {
   width: 52px;
 }
 
-.register-form {
+.content {
   margin: auto;
   padding: 16px;
   max-width: 50%;
@@ -47,13 +47,13 @@ footer p {
 }
 
 @media (max-width: 968px) {
-  .register-form {
+  .content {
     max-width: 90%;
   }
 }
 
 @media (max-width: 380px) {
-  .register-form {
+  .content {
     max-width: 100%;
   }
 }
